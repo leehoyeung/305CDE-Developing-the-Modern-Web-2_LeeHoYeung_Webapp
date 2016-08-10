@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.css" />
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.min.css" />
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/Aids.css" rel="stylesheet" type="text/css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script>
+	  function checklogin() {
+	  var sname = window.localStorage.getItem("username");
+  if ( sname != undefined){
+	  //alert("You are logged in, Redirect to home Page...");
+	  //window.location.replace("login.html");
+	  document.getElementById('loginmane').text = sname;
+	  } else { alert("Please login or register an account");
+	  		window.location.replace("login.html");
+	  };
+	  }
+  </script>
+    <script>
+		function logout() {
+			window.localStorage.clear();
+			window.location.replace("login.html");}
+			
+	</script>
+
+</head>
+<body onload="checklogin()">
+
+<div data-role="page" id="home">
+  <div data-role="header">
+ <a id="loginmane" href="changepw.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" rel="external">Home</a>
+    <h1>Aids Concern</h1>
+ <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-left" onClick="logout()">Logout</a>
+  </div>
+  <div data-role="content" align="center"> <img src="images/icon.png" alt="Aids Concerns"></div>
+  
+  <!---What's HIV--->
+  <ul data-role="listview" data-inset="true" >
+  <div data-role="main" class="ui-content">
+   	<p>What's HIV</p>
+  </div>
+  <a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#page1" rel="external">Common Symptoms</a>
+  <a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#page2" rel="external">Prevention</a>
+  </ul>
+  <!---What's HIV--->
+    
+  <!---Media Center--->
+  <div data-role="main" class="ui-content">
+    <p>Media Center</p>
+  </div>
+  <a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="newsletter.html" rel="external">Newsletter</a>
+  <a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="video.html" rel="external">Video Aechives</a>
+
+  <!---Media Center--->
+  
+  <!---Online Helping--->
+  <!---<div data-role="main" class="ui-content">
+    <p>Online Helping</p>
+  </div>
+    <a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="#">Chat with Worker</a>
+
+  <!---Online Helping--->
+  
+  <!---Find us--->
+  <div data-role="main" class="ui-content">
+    <p>Find us</p>
+  </div>
+    <a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="map2.html" rel="external">Map Location</a>
+
+  <!---Find us--->
+  
+  
+  <div data-role="footer">
+    <h1>Aids Concern</h1>
+  </div>
+</div>
+
+
+<!------------------------------page1----------------------------------------->
+
+<div data-role="page" id="page1">
+  <div data-role="header">
+ <a href="index_a.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" rel="external">Home</a>
+    <h1>Common Symptoms</h1>
+  <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-left" onClick="logout()">Logout</a>   
+  </div>
+  <div data-role="content" align="center"> <img src="images/icon.png" alt="Aids Concerns"></div>
+  
+  <div data-role="content"></div>
+ <div role="main" class="ui-content">
+    <div class="ui-grid-b" style="height:250px">
+      <div class="ui-block-a" style="height:100% align-content:center"><a href="#cspopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" >
+      <img src="images/cs.jpg" width="180" height="180" alt="Symptoms"><br>Symptoms</a></div>
+
+ 
+    <div data-role="popup" id="cspopup" class="ui-content" style="width:580px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>At the early stage of infection, an infected person may experience:</b> <br>
+      <br>
+      Flu-like symptoms<br>
+      Fever<br>
+      Weight loss<br>
+      Fatigue<br>
+      Swollen glands<br>
+      <br>
+      <br>
+      There can also be no symptom at all.</p>
+    </div>
+</div>
+</div>
+</div>
+<!---------------------------------page1------------------------------>
+<!------------------------------page2----------------------------------------->
+
+<div data-role="page" id="page2">
+  <div data-role="header">
+ <a href="index_a.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" rel="external">Home</a>
+    <h1>Prevention</h1>
+  <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-left" onClick="logout()">Logout</a>   
+  </div>
+  <div data-role="content" align="center"> <img src="images/icon.png" alt="Aids Concerns"></div>
+  
+ <div data-role="content"></div>
+ <div role="main" class="ui-content">
+    <div class="ui-grid-b" style="height:250px">
+      <div class="ui-block-a" style="height:100%"><a href="#Preventionpopup1" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="images/condoms.jpg" width="180" height="180" alt="Condoms"><br>Condoms</a></div>
+      <div class="ui-block-b" style="height:100%"><a href="#Preventionpopup2" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="images/lover.jpg" width="180" height="180" alt="lover"><br>Partner</a></div>
+      <div class="ui-block-c" style="height:100%"><a href="#Preventionpopup3" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="images/syringe.jpg" width="180" height="180" alt="syringe"><br>Never share syringe</a></div>
+    </div>
+   
+    <div class="ui-grid-b" style="height:250px">
+      <div class="ui-block-a" style="height:100%"><a href="#Preventionpopup4" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="images/precautions.jpg" width="180" height="180" alt="precautions"><br>Precautions</a></div>
+      <div class="ui-block-b" style="height:100%"><a href="#Preventionpopup5" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="images/blood.jpg" width="180" height="180" alt="blood"><br>Blood</a></div>
+      <div class="ui-block-c" style="height:100%"><a href="#Preventionpopup6" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"><img src="images/prep.jpg"  width="180" height="180" alt="prep"><br>PrEP</a></div>
+    </div>
+  </div>
+  
+    <div data-role="popup" id="Preventionpopup1" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>Use condoms properly and practicing safer sex is one of the most effective ways to reduce the risk of infection.</b></p>
+    </div>
+    
+    <div data-role="popup" id="Preventionpopup2" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>Maintain sexual relationship with only one uninfected partner.</b></p>
+    </div>
+    
+    <div data-role="popup" id="Preventionpopup3" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>Never share syringe or personal items such as razor or toothbrush.</b></p>
+    </div>
+    
+     <div data-role="popup" id="Preventionpopup4" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>Use disposable or sterilized skin piercing equipment and follow standard hygiene precautions during acupuncture or tattooing.</b></p>
+    </div>
+    
+    <div data-role="popup" id="Preventionpopup5" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>Wear disposable gloves before in contact with blood.</b></p>
+    </div>
+    
+    <div data-role="popup" id="Preventionpopup6" class="ui-content" style="width:300px">
+      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <p><b>PrEP (pre-exposure prophylaxis) and PEP (post-exposure prophylaxis): PrEP and PEP are effective additional measures alongside other HIV prevention tools if administered correctly.</b></p>
+    </div>
+    
+    </div>
+    </div>
+<!---------------------------------page2------------------------------>
+
+
+
+</body>
+</html>
+

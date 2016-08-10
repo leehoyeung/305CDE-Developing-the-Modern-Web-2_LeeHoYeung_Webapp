@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.css" />
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.min.css" />
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/Aids.css" rel="stylesheet" type="text/css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+$(document).ready(function() {
+	
+	
+$("#submit").on('click',function() {
+    var username=$("#username").val();
+    var pass1=$("#password").val();
+    var pass2=$("#repassword").val();
+	var email=$("#email").val();
+	
+	if(pass1==pass2){
+	}else{
+		alert("password doesn't match");
+	    return;	
+	}
+	
+	
+    var myData = 'username='+username+'&password='+pass1+"&email="+email;
+	 		
+        $.ajax({
+  		  	 url:'register.php',
+  			   type:"POST",
+           dataType : 'text',
+  			   data:myData,
+        success: function(mymsg, status){
+    				alert(mymsg);
+          if(mymsg == "Thank you for your registration"){
+		window.location.replace("login.html");
+    				alert(msg);}
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   });
+});	
+</script>
+</head>
+<body>
+
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>Aids Concern</h1>
+  </div>
+  
+  <div data-role="content" align="center"> <img src="images/icon.png" alt="Aids Concerns"></div>
+  
+
+Username: <input type="text" id="username"><br>
+Password: <input type="password" id="password"><br>
+re-Password: <input type="password" id="repassword"><br>
+Email: <input type="text" id="email"><br>
+
+<button id="submit">Save</button>
+<div data-role="footer"></div>
+<br><br><br><br>
+</div>
+
+</body>
+</html>
+

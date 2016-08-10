@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.css" />
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.min.css" />
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/Aids.css" rel="stylesheet" type="text/css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCfhM6NYoVLzRN5c0oLz8gIzbZXG8uPL6g"></script>
+        <script>
+		function logout() {
+			window.localStorage.clear();
+			window.location.replace("login.html");}
+			
+	</script>
+
+  <script>
+
+
+function initialize()
+{
+var myCenter=new google.maps.LatLng(22.270567,114.236615);
+var myCenter1=new google.maps.LatLng(22.3037891,114.1711551);
+
+var mapProp = {
+  center:myCenter,
+  zoom:18,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+var mapProp1 = {
+  center:myCenter1,
+  zoom:18,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var map1=new google.maps.Map(document.getElementById("googleMap2"),mapProp1);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  });
+  var marker1=new google.maps.Marker({
+  position:myCenter1,
+  });
+
+marker.setMap(map);
+marker1.setMap(map1);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+ <script>
+
+
+
+
+
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+</head>
+<body>
+
+<div data-role="page" id="home">
+
+  <div data-role="header">
+ <a href="index_a.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" rel="external">Home</a>
+    <h1>Map Location</h1>
+ <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-left" onClick="logout()">Logout</a>
+  </div>
+<table style="width:510px" border="1">
+<tr>
+<td>
+
+<div id="googleMap" style="width:500px;height:380px;"></div>
+</td>
+<td align="left">
+AIDS Concern Office<br>
+<br>
+Address : 17B, Block F, 3 Lok Man Road, Chai Wan, Hong Kong<br>
+<br>
+Tel: (852)2898 4411<br>
+<br>
+Fax: (852)2505 1682<br>
+<br>
+E-mail: enquire@aidsconcern.org.hk<br>
+<br>
+Facebook: www.facebook.com/AIDSConcern<br>
+<br>
+Twitter: https://twitter.com/aidsconcern<br>
+<br>
+Instagram: https://www.instagram.com/aids_concern/<br>
+</td>
+</tr>
+<tr>
+<td>
+
+<div id="googleMap2" style="width:500px;height:380px;"></div>
+</td>
+<td align="left">
+Address: Flat B, 3/F, Fu Lee Commercial Building, 14 - 20 Pilkem Street, Jordan, Kowloon<br>
+<br>
+Tel: (852)2394 6677<br>
+</td>
+</tr>
+</table>
+
+  <div data-role="footer">
+  </div>
+</div>
+
+
+
+</body>
+</html>
+

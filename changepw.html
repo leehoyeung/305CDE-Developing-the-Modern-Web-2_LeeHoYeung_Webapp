@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.css" />
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.min.css" />
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/Aids.css" rel="stylesheet" type="text/css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+$(document).ready(function() {
+	
+	
+$("#update").on('click',function() {
+	var username = window.localStorage.getItem("username");
+	var email=$("#email").val();
+    var oldpass=$("#updateoldpassword").val();
+	var newpass=$("#updatenewpassword").val();
+	
+    var myData = 'username='+username+'&email='+email+'&oldpass='+oldpass+'&newpass='+newpass;
+	 			
+        $.ajax({
+  		  	 url:'changePW.php',
+  			   type:"PUT",
+           dataType : 'text',
+  			   data:myData,
+        success: function(msg, status){
+    				alert(msg);
+        
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   
+});
+
+});	
+</script>
+</head>
+<body>
+
+<div data-role="page" id="home">
+  <div data-role="header">
+   <a href="index_a.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" rel="external">Home</a>
+
+    <h1>Aids Concern</h1>
+  </div>
+  
+  <div data-role="content" align="center"> <img src="images/icon.png" alt="Aids Concerns"></div>
+  
+
+Email: <input type="text" id="email"><br>
+Old Password: <input type="password" id="updateoldpassword"><br>
+New Password: <input type="password" id="updatenewpassword"><br>
+
+<button id="update">Save</button><br>
+<a class="ui-btn-a ui-btn ui-btn-icon-right ui-icon-carat-r" data-form="ui-btn-up-a" data-swatch="a" data-theme="a" href="delacc.html" rel="external">I want Delete my account</a>
+<div data-role="footer"></div>
+<br><br><br><br>
+</div>
+
+</body>
+</html>
+

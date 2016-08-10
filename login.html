@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.css" />
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.min.css" />
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/Aids.css" rel="stylesheet" type="text/css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+$(document).ready(function() {
+$("#login").on('click',function() {
+    var username=$("#loginusername").val();
+    var pass1=$("#loginpassword").val();
+
+	
+    var myData = 'username='+username+'&password='+pass1;
+	 		
+        $.ajax({
+  		  	 url:'login.php',
+  			   type:"GET",
+           dataType : 'text',
+  			   data:myData,
+        success: function(mymsg, status){
+    				alert(mymsg);
+        if(mymsg == "Success to login"){
+		localStorage.username = $("#loginusername").val();
+		window.location.replace("index_a.html");
+    				alert(msg);}
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+    });
+});	
+</script>
+</head>
+<body>
+
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>Aids Concern</h1>
+  </div>
+  
+  <div data-role="content" align="center"> <img src="images/icon.png" alt="Aids Concerns"></div>
+  
+
+Username: <input type="text" id="loginusername"><br>
+Password: <input type="password" id="loginpassword"><br>
+<button id="login">Login</button>
+<div data-role="footer"></div>
+<div align="center"><a href="register.html" rel="external">Register account</a></div>
+<br><br><br><br>
+</div>
+
+</body>
+</html>
+

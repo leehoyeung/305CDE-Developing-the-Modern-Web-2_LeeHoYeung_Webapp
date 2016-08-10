@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.css" />
+  <link rel="stylesheet" href="127.0.0.1/themes/Aids.min.css" />
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link href="themes/Aids.css" rel="stylesheet" type="text/css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+$(document).ready(function() {
+	
+$("#delete").on('click',function() {
+	var username = window.localStorage.getItem("username");
+    var password=$("#password").val();
+	var email=$("#email").val();
+	var myData = 'username='+username+'&email='+email+'&password='+password;
+    //var review_id="reviewid";
+    //var myData = 'review_id='+review_id;
+              
+        $.ajax({
+          url:'delacc.php',
+          type:"DELETE",
+          dataType : 'text',
+          data:myData,
+        success: function(mymsg, status){
+            alert(mymsg);
+           	if(mymsg == "Account Delete Success"){
+				
+				window.location.replace("login.html");
+				window.localStorage.clear();
+				alert(msg);}
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   
+});
+
+});
+</script>
+</head>
+<body>
+
+<div data-role="page" id="home">
+  <div data-role="header">
+   <a href="index_a.html" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" rel="external">Home</a>
+    <h1>Aids Concern</h1>
+  </div>
+  
+  <div data-role="content" align="center"> <img src="images/icon.png" alt="Aids Concerns"></div>
+  
+
+Email: <input type="text" id="email"><br>
+Old Password: <input type="password" id="password"><br>
+
+<button id="delete">Comfirm Delete my account</button><br>
+<div data-role="footer"></div>
+<br><br><br><br>
+</div>
+
+</body>
+</html>
+
